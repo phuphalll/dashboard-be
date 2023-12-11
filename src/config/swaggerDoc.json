@@ -3,7 +3,7 @@
     "info": {
         "title": "Dashboard api",
         "description": "This is REST API server aims to provide Sales dashboard services.",
-        "version": "1.0.0",
+        "version": "2.0.0",
         "contact": {
             "name": "phukao777@gmail.com",
             "url": "https://github.com/phuphalll/dashboard-be"
@@ -20,11 +20,13 @@
                 "tags": [
                     "Sales"
                 ],
-                "summary": "Search Sales report by yeaerly startDate and endDate value. available=[2020, 2021, 2022, 2023]",
+                "summary": "Search Sales report by yeaerly startDate and endDate value.",
                 "parameters": [
                     {
                         "name": "startDate",
+                        "description": "Available year =[2020, 2021, 2022, 2023]",
                         "in": "query",
+                        "required": true,
                         "schema": {
                             "type": "string"
                         },
@@ -32,7 +34,9 @@
                     },
                     {
                         "name": "endDate",
+                        "description": "Available year =[2020, 2021, 2022, 2023]",
                         "in": "query",
+                        "required": true,
                         "schema": {
                             "type": "string"
                         },
