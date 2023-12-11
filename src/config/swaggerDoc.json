@@ -9,6 +9,111 @@
             "url": "https://github.com/phuphalll/dashboard-be"
         }
     },
-    "paths": {},
-    "components": {}
+    "paths": {
+        "/sales": {
+            "get": {
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "tags": [
+                    "Sales"
+                ],
+                "summary": "Search Sales report by yeaerly startDate and endDate value. available=[2020, 2021, 2022, 2023]",
+                "parameters": [
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2020"
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2023"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TYearlyData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "IDataItem": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string"
+                    },
+                    "growth": {
+                        "type": "string"
+                    },
+                    "gap": {
+                        "type": "string"
+                    },
+                    "margin": {
+                        "type": "string"
+                    },
+                    "dist": {
+                        "type": "string"
+                    },
+                    "budget": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "value",
+                    "growth",
+                    "gap",
+                    "margin",
+                    "dist",
+                    "budget"
+                ]
+            },
+            "IYearData": {
+                "type": "object",
+                "properties": {
+                    "year": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/IDataItem"
+                        }
+                    }
+                },
+                "required": [
+                    "year",
+                    "data"
+                ]
+            },
+            "TYearlyData": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/IYearData"
+                }
+            }
+        }
+    }
 }
