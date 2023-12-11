@@ -1,0 +1,8 @@
+const errorCode = {
+  INTERNAL_SERVIER_ERROR: "HM00000",
+  BACKEND_API_ERROR: "HM00001",
+  DATABASE_ERROR: "HM00002",
+  MISSING_FIELD: "HM00003",
+};
+
+export default errorCode;

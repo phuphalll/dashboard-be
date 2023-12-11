@@ -1,0 +1,14 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Dashboard api",
+        "description": "This is REST API server aims to provide Sales dashboard services.",
+        "version": "1.0.0",
+        "contact": {
+            "name": "phukao777@gmail.com",
+            "url": "https://github.com/phuphalll/dashboard-be"
+        }
+    },
+    "paths": {},
+    "components": {}
+}
