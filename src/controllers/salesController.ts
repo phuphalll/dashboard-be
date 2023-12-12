@@ -33,7 +33,7 @@ class SalesController {
       logger.info(`Found ${response.length} year data.`);
       return res.status(HttpStatus.OK).send(response).end();
     } catch (e) {
-      console.log(e);
+      logger.info(e);
       next(e);
     }
   };

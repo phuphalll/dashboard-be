@@ -12,7 +12,7 @@ class MainController {
         .status(HttpStatus.OK)
         .send({ status: "Ok", Date: new Date().toISOString() });
     } catch (e) {
-      console.log(e);
+      logger.info(e);
       next(e);
     }
   };
