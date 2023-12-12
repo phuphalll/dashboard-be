@@ -8,6 +8,8 @@ import { getReportbyYear } from "@/repository/salesRepo";
 class SalesController {
   getReport = async (_req: Request, res: Response, next: NextFunction) => {
     try {
+      await new Promise((r) => setTimeout(r, 500));
+
       const { startDate, endDate } = validate(_req?.query, [
         "startDate",
         "endDate",
@@ -28,8 +30,8 @@ class SalesController {
         startYear: intStartDate,
         endYear: intEndDate,
       });
-
-      return res.status(HttpStatus.OK).send({ results: response }).end();
+      logger.info(`Found ${response.length} year data.`);
+      return res.status(HttpStatus.OK).send(response).end();
     } catch (e) {
       console.log(e);
       next(e);
